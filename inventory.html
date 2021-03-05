@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/style/inventory.css">
+    <title>Inventory</title>
+</head>
+
+<body>
+    <div class="like-nav">
+        <select id="list" onchange="change(this.value);">
+            <option class="drop active" value="">Filter products <span class="arrow">▼</span></option>
+            <option class="drop" value="a">Mains</option>
+            <option class="drop" value="ab">Desserts</option>
+            <option class="drop" value="abc">Drinks</option>
+        </select>
+        <a class="add" id="button1" href="#popup1">Add Item</a>
+    </div>
+    
+    <form id="adding" onsubmit="event.preventDefault(); adds()">
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>Add Products</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    <input type="text" placeholder="food name" name="name">
+                    <br>
+                    <input type="text" placeholder="food type" name="type">
+                    <br>
+                    <input type="text" placeholder="Quantity" name="quantity">
+                    <br>
+                    <input type="text" placeholder="Price: R" name="price">
+                    <br>
+                    <button class="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- ===== TABLES ===== -->
+    <div class="inventory">
+        
+        <table id="a" >
+            <tr id="names">
+                <th>Main Meal</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            <div class="beverages">
+                <tr>
+                    <td>T-Bone</td>
+                    <td>5</td>
+                    <td>R900</td>
+                    <td><button class="edit">edit</button> <button class="delete">delete</button></td>
+                </tr>
+                <tr>
+                    <td>Chicken espatada</td>
+                    <td>8</td>
+                    <td>R800</td>
+                    <td><button class="edit">edit</button> <button class="delete">delete</button></td>
+                </tr>
+                <tr>
+                    <td>Wagyu</td>
+                    <td>12</td>
+                    <td>R200</td>
+                    <td><button class="edit">edit</button> <button class="delete">delete</button></td>
+                </tr>
+                <tr>
+                    <td>Burger</td>
+                    <td>4</td>
+                    <td>R150</td>
+                    <td><button class="edit">edit</button> <button class="delete">delete</button></td>
+                </tr>
+                <tr>
+                    <td>Lasagna</td>
+                    <td>6</td>
+                    <td>R80</td>
+                    <td><button class="edit">edit</button> <button class="delete">delete</button></td>
+                </tr>
+        </table>
+        <table id="ab">
+            <tr>
+                <th>Desserts</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>Marble Cake</td>
+                <td>7</td>
+                <td>R100</td>
+                <td><button class="edit">edit</button> <button class="delete">delete</button></td>
+            </tr>
+            <tr>
+                <td>Fruit Cake</td>
+                <td>8</td>
+                <td>R160</td>
+                <td><button class="edit">edit</button> <button class="delete">delete</button></td>
+            </tr>
+            <tr>
+                <td>Choco Pie</td>
+                <td>4</td>
+                <td>R200</td>
+                <td><button class="edit">edit</button> <button class="delete">delete</button></td>
+            </tr>
+            <tr>
+                <td>Caramel Apple</td>
+                <td>6</td>
+                <td>R99</td>
+                <td><button class="edit">edit</button> <button class="delete">delete</button></td>
+            </tr>
+            <tr>
+                <td>Flapper Pie</td>
+                <td>4</td>
+                <td>R198</td>
+                <td><button class="edit">edit</button> <button class="delete">delete</button></td>
+            </tr>
+        </table>
+        <table id="abc">
+            <tr>
+                <th>Drinks</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>Coca cola</td>
+                <td>48</td>
+                <td>R15</td>
+                <td><button class="edit">edit</button> <button class="delete">delete</button></td>
+            </tr>
+            <tr>
+                <td>Orange Juice</td>
+                <td>10</td>
+                <td>R20</td>
+                <td><button class="edit">edit</button> <button class="delete">delete</button></td>
+            </tr>
+            <tr>
+                <td>Apple Juice</td>
+                <td>15</td>
+                <td>R20</td>
+                <td><button class="edit">edit</button> <button class="delete">delete</button></td>
+            </tr>
+            <tr>
+                <td>Fanta Orange</td>
+                <td>48</td>
+                <td>R15</td>
+                <td><button class="edit">edit</button> <button class="delete">delete</button></td>
+            </tr>
+            <tr>
+                <td>Cranberry Juice</td>
+                <td>17</td>
+                <td>R15</td>
+                <td><button class="edit">edit</button> <button class="delete">delete</button></td>
+            </tr>
+        </table>
+        </table>
+    </div>
+</body>
+<script src="/assets/scripts/inventory.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</html>

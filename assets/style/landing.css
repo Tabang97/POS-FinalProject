@@ -4,36 +4,25 @@
     box-sizing: border-box;
 }
 body{
-  background: rgb(43, 41, 41);
+  background: rgb(0, 0, 0);
 }
-.landing{
-    padding-top: 50px;
-}
-.title{
+
+/* .title{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     color: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 25px;
-}
-.invent-button{
-  font-size: 15px;
-  background: rgb(233, 233, 80);
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  width: 90px ;
-}
-.invent-button:hover{
-  color: black(233, 233, 80);
-  background: white;
-  font-weight: bold;
+} */
+h1{
+  color: white;
+  text-align: center;
 }
 .about {
     display: flex;
     flex-wrap: wrap;
-    padding-top: 10%;
+    padding-top: 5%;
     padding-left: 10%;
     padding-right: 10%;
 }
@@ -73,29 +62,38 @@ body{
     width: 14vw;
     height: 50px;
   }
-  .btns .submit{
+  form{
+    border: solid red;
+    border-radius: 10px;
+    padding: 30px;
+  }
+  p{
+    color: white;
+    text-align: center;
+  }
+  .submit{
     background: black;
     border: none;
     color: white;
-    font-size: 17px;
+    font-size: 18px;
     border-radius: 5px;
-    width: 70px;
+    margin: 40px;
+    padding: 10px;
     margin-left: 20px;
   }
-  .btns .sign-up{
+  .sign-up{
     color: white;
     background: black;
-    border: none;
-    font-size: 17px;
-    width: 70px;
+    padding: 10px;
     border-radius: 5px;
     margin-left: 70px;
+    text-decoration: none;
   }
-  .btns .sign-up:hover{
+  .sign-up:hover{
     color: black;
     background: white;
   }
-  .btns .submit:hover{
+  .submit:hover{
     color: black;
     background: white;
   }

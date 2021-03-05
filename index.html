@@ -5,49 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/style/landing.css">
-    <title>PintOfS</title>
+    <title>PointOfSales</title>
 </head>
 <body>
-    <header class="landing">
-        <div class="title">
-            <h2>Point Of Sales</h2>
-            <button class="invent-button" id="invent-button">Inventory</button>
-        </div>
-        <div class="about">
-            <img class="slides" src="assets/images/coffee-983955_1920.jpg" alt="">
-            <img class="slides" src="assets/images/fish-3483465_1920.jpg" alt="">
-            <img class="slides" src="assets/images/irish-whiskey-2152126_1920.jpg" alt="">
-            <img class="slides" src="assets/images/dessert-3331910_1920.jpg" alt="">
-            <img class="slides" src="assets/images/hamburger-5577494_1920.jpg" alt="">
-            <img class="slides" src="assets/images/skewer-3370443_1920.jpg" alt="">
-            <img class="slides" src="assets/images/cake-pops-693645_1920.jpg" alt="">
-            <img class="slides" src="assets/images/cake-1850011_1920.jpg" alt="">
-            <img class="slides" src="assets/images/churros-2188871_1920.jpg" alt="">
-            <img class="slides" src="assets/images/dessert-1246687_1920.jpg" alt="">
-            <img class="slides" src="assets/images/brazil-1869868_1920.jpg" alt="">
-            <img class="slides" src="assets/images/bar-1839361_1920.jpg" alt="">
-            <img class="slides" src="assets/images/drink-462776_1920.jpg" alt="">
-            <img class="slides" src="assets/images/fresh-orange-juice-1614822_1920.jpg" alt="">
-            <img class="slides" src="assets/images/wine-1761613_1920.jpg" alt="">
-            <div>
-                <form action="">
-                    <input type="text" placeholder="Your Name">
-                    <br>
-                    <br>
-                    <input type="text" placeholder="Password">
-                    <br>
-                    <br>
-                </form>
-                <div class="btns">
-                    <button class="submit">Submit</button>
-                    <button class="sign-up">Sign-up</button>
-                </div>
-
-
-            </div> 
-        </div>
-    </header>
-    <script src="assets/scripts/landing.js"></script>
-    
+    <h1>Point Of Sale</h1>
+    <div class="about">
+        <img class="slides" src="assets/images/coffee-983955_1920.jpg" alt="">
+        <img class="slides" src="assets/images/fish-3483465_1920.jpg" alt="">
+        <img class="slides" src="assets/images/irish-whiskey-2152126_1920.jpg" alt="">
+        <img class="slides" src="assets/images/dessert-3331910_1920.jpg" alt="">
+        <img class="slides" src="assets/images/hamburger-5577494_1920.jpg" alt="">
+        <img class="slides" src="assets/images/skewer-3370443_1920.jpg" alt="">
+        <img class="slides" src="assets/images/cake-1850011_1920.jpg" alt="">
+        <img class="slides" src="assets/images/churros-2188871_1920.jpg" alt="">
+        <img class="slides" src="assets/images/dessert-1246687_1920.jpg" alt="">
+        <img class="slides" src="assets/images/brazil-1869868_1920.jpg" alt="">
+        <img class="slides" src="assets/images/fresh-orange-juice-1614822_1920.jpg" alt="">
+        <img class="slides" src="assets/images/wine-1761613_1920.jpg" alt="">
+    <div>
+        <form id="log" onsubmit="event.preventDefault(); login()" >
+            <p>Log-in</p>
+            <br>
+            <input type="text" placeholder="Your Name">
+            <br>
+            <br>
+            <input type="text" placeholder="Password">
+            <br>
+            <button type="submit" class="submit">Submit</button>
+            <a href="/register.html" class="sign-up"> sign-up</a>
+        </form>    
 </body>
+<script src="assets/scripts/landing.js"></script>
 </html>

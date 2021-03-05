@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/style/pay.css">
+    <title>pick then pay</title>
+</head>
+<body>
+    <header class="landing">
+        <div class="title">
+            <a href="/inventory.html" class="invent-button" id="invent-button">Inventory</a>
+            <form onsubmit="event.preventDefault(); search()">
+                <div class="search-box">
+                    <input type="text" class="search-by-name" name="name" action="" placeholder="Search"></input>
+                    <button class="btn-search" type="submit">search</button>
+                </div>
+            </form>
+        </div>
+        <div class="about">
+            <div class="display" id="display">
+                <h4>TOTAL:</h4>
+                <h4 style="color: white;" id="total">0</h4>
+            </div>
+
+            <div class="foods" id="food-types" onsubmit="event.preventDefault(); foods()">
+                <button onclick="showItems('main')" class="main">Main Meal</button>
+                <br>
+                <button onclick="showItems('desserts')" class="desserts">Dessert</button>
+                <br>
+                <button onclick="showItems('drinks')" class="drinks">Drinks</button>
+                <br>
+                <button id="pay" class="pay">PAY</button>
+                
+
+                <!-- =====POPUP===== -->
+
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        check-out
+                        <h4 id="total"></h4>
+                        <input type="text" placeholder="">
+                        <select name="" id="">
+                            <option value=""></option>
+                        </select>
+                        <br>
+                        <br>
+                        <br>
+                        <button>bhatala</button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="display-items" id="display-items">
+                <div class="inventory">
+                    <table id="a">
+                        <tr>
+                            <th>Meal</th>
+                            <th>drinks</th>
+                            <th>desserts</th>
+                        </tr>
+                        <tr>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+<script src="/assets/scripts/pay.js"></script>
+</html>

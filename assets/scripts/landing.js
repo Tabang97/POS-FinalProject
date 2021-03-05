@@ -10,5 +10,32 @@ function carousel() {
   slideIndex++;
   if (slideIndex > x.length) {slideIndex = 1}
   x[slideIndex-1].style.display = "block";
-  setTimeout(carousel, 2000); // Change image every 2 seconds
+  setTimeout(carousel, 2000);
+}
+
+
+// =====LOG-IN======
+function login() {
+  let loginForm = document.getElementById("log");
+  let inputs = loginForm.getElementsByTagName("input");
+
+  let user = inputs[0].value;
+  let password = inputs[1].value;
+
+  let users;
+  fetch("http://127.0.0.1:5000/show-records/")
+  .then((response) => response.json())
+  .then((json) =>{
+    console.log(json);
+    users = json;
+    console.log(user, password, users);
+
+    let logged = users.filter((userProfile) => {
+      return userProfile.user == user && userProfile.password == password;
+    });
+    console.log(logged);
+    if (logged.length >= 1){
+      window.location.href = `./pay.html`;
+    }
+  })
 }
