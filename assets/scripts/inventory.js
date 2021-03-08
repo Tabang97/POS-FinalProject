@@ -24,34 +24,47 @@ function adds() {
       form.reset();
     });
   }
-  
+
   function  change() {
     var selectedValue = document.change("list").value;
     console.log(selectedValue);
 }
-change();
+// change();
 
-
-        // =====DROPDOWN=====
-function change(category) {
-    let categ = "abcdefghijklmnopqrstuvwxyz"
-        document.getElementById(category).style.display = 'block';
-    for (i = 1; i < category.length; i++) {
-        document.getElementById(categ.substring(0, i)).style.display = 'none'
-    }
-    for (i = category.length + 1; i < 26; i++) {
-        document.getElementById(categ.substring(0, i)).style.display = 'none'
-    }
+            // =======DISPLAY TABLES======
+function getPosts() {
+  fetch("http://127.0.0.1:5000/show-products/")
+  .then((response) => response.json())
+  .then((json) => {
+    console.log(json);
+    json.forEach((pos) => creatBlogItem(pos));
+  });
 }
 
+function creatBlogItem(pos) {
+  const item =`
+      <td> ${pos.id}</td>
+      <td> ${pos.products}</td>
+      <td> ${pos.type}</td>
+      <td> ${pos.quantity}</td>
+      <td> ${pos.prices}</td>   
+      <td><button onclick="deleteValues">delete</button>
+          <button>edit</button></td>
+    `;
 
-var listt = document.getElementById("list");
-var dropp = listt.getElementsByClassName("drop");
+  let list = document.getElementById("records");
+  console.log();
+  list.innerHTML += item;
+}
+getPosts();
 
-for (var i = 0; i < dropp.length; i++) {
-  dropp[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
+function deleteValues(id) {
+  if (confirm("Are you sure to Delete?")) {
+    fetch(`http://127.0.0.1:5000/delete-products/${id}/`, {method: "DELETE"});
+    console.log(id);
+  } else {
+    alert("Delete Cancelled");
+
+    console.log("This was not saved to the Database");
+  }
 }

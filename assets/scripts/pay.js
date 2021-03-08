@@ -18,8 +18,7 @@
 
     filteredProducts.forEach(item => {
         shownItemList.innerHTML += `
-        <td><button class="addToCart" onclick="addToCart(${item.id})">${ item.products }<br><hr>${ item.prices }</button></td>
-        `
+        <td><button class="addToCart" onclick="addToCart(${item.id})">${ item.products }<br><hr>${ item.prices }</button></td>`
     });
     console.log(filteredProducts);
   }
