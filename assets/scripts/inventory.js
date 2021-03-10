@@ -8,7 +8,7 @@ function adds() {
       method: "POST",
       body: JSON.stringify({
         name: inputs[0].value,
-        type: inputs[1].value,
+        type: select[1].value,
         quantity: inputs[2].value,
         price: inputs[3].value,
       }),
@@ -48,7 +48,7 @@ function creatBlogItem(pos) {
       <td> ${pos.type}</td>
       <td> ${pos.quantity}</td>
       <td> ${pos.prices}</td>   
-      <td><button onclick="deleteValues">delete</button>
+      <td><button onclick="deleteValues(${pos.id})">delete</button>
           <button>edit</button></td>
     `;
 
@@ -57,6 +57,8 @@ function creatBlogItem(pos) {
   list.innerHTML += item;
 }
 getPosts();
+
+
 
 function deleteValues(id) {
   if (confirm("Are you sure to Delete?")) {

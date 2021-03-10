@@ -88,6 +88,12 @@ td{
 .popup .close:hover {
     color: red;
 }
+select{
+    padding-left: 25%;
+    width: 16.5vw;
+    height: 4vh;
+    margin-left: 20px;
+}
 @media screen and (max-width: 700px){
     .box{
       width: 70%;
