@@ -35,8 +35,6 @@
 
     function addToCart(item_id) {
       let shownItemList = document.getElementById('display');
-      // shownItemList.innerHTML = '';
-
       let filteredProducts = cart.filter(foodcart => {
         return foodcart.id == item_id;
       })
@@ -48,18 +46,59 @@
         <p class="cart" style="color:white">${item.products} ${item.prices}</p>`
         document.getElementById('total').innerHTML = total;
       });
-      console.log(filteredProductssss)
+      console.log(filteredProducts)
     }
 
+
+// =====SEARCH=====
+function searchProducts(){
+  let form = document.getElementById("search-box");
+  let searchTerm = form.getElementsByTagName("input")[0].value;
+  let searchReg = new RegExp(searchTerm, "i");
+
+  fetch("http://127.0.0.1:5000/show-products/")
+  .then((response) => response.json())
+  .then((json) => {
+
+    let result = json.filter((category) => {
+      return category.products.search(searchReg) !== -1;
+    });
+    if (result.length > 0) {
+      document.getElementById("display-items").innerHTML = "";
+      result.forEach((item) => showItems(item));
+    }
+    else {
+      alert("Not Found");
+    }
+  })
+  .catch((erro) => {
+    console.log(erro);
+  })
+}
+
+
+// ========CHECKOUT========
+function checkout() {
+  let total = document.getElementsByClassName("paying")[0].innerHTML;
+  alert(`Thank you for the purchace, come again, your total is R${total}`);
+  document.getElementsByClassName("paying")[0].innerHTML = "0";
+  let clear = "";
+  let rec = document.getElementById("cartlist");
+  rec.innerHTML = clear;
+}
       // =====POPUP=====
 
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("pay");
-var span = document.getElementsByClassName("close")[0];
+      var modal = document.getElementById("myModal");
+      var btn = document.getElementById("pay");
+      var span = document.getElementsByClassName("close")[0];
+      
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-span.onclick = function() {
-  modal.style.display = "none";
+function openEditModal(id){
+  console.log(id)
 }
