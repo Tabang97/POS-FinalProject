@@ -56,7 +56,7 @@
 //   let searchTerm = form.getElementsByTagName("input")[0].value;
 //   let searchReg = new RegExp(searchTerm, "i");
 
-//   fetch(" https://tabangduda.herokuapp.com/")
+//   fetch(" https://tabangduda.herokuapp.com/show-products/")
 //   .then((response) => response.json())
 //   .then((json) => {
 
@@ -75,6 +75,7 @@
 //     console.log(erro);
 //   })
 // }
+// searchProducts();
 
 
 // ========CHECKOUT========
