@@ -13,29 +13,72 @@ function carousel() {
   setTimeout(carousel, 2000);
 }
 
+let users;
+fetch("https://tabangduda.herokuapp.com/show-records/")
+.then((response)=> response.json())
+.then((data) => {
+  users=data
+  console.log(users)
+})
 
 // =====LOG-IN======
 function login() {
   let loginForm = document.getElementById("log");
   let inputs = loginForm.getElementsByTagName("input");
 
-  let user = inputs[0].value;
-  let password = inputs[1].value;
+  let uname = inputs[0].value;
+  let pword = inputs[1].value;
 
-  let users;
-  fetch("https://dashboard.heroku.com/apps/tabangduda/")
-  .then((response) => response.json())
-  .then((json) =>{
-    console.log(json);
-    users = json;
-    console.log(user, password, users);
-
-    let logged = users.filter((userProfile) => {
-      return userProfile.user == user && userProfile.password == password;
+  let log = users.filter((user) => {
+    return user.user == uname && user.password == pword;
     });
-    console.log(logged);
-    if (logged.length >= 1){
-      window.location.href = `./pay.html`;
-    }
-  })
+    
+    if (log.length > 0) {
+    alert("You have Successfully Logged in, " + uname);
+    // localStorage.setItem("user", JSON.stringify(log[0]));
+    window.location.href = "./pay.html";
+  } else {
+  alert("Please enter a valid username and password");
+  }
+  // let users;
+  // fetch(" https://tabangduda.herokuapp.com/log/")
+  // .then((response) => response.json())
+  // .then((json) =>{
+  //   console.log(json);
+  //   users = json;
+  //   console.log(user, password, users);
+
+  //   let logged = users.filter((userProfile) => {
+  //     return userProfile.user == user && userProfile.password == password;
+  //   });
+  //   console.log(logged);
+  //   if (logged.length >0){
+  //     window.location.href = `./pay.html`;
+  //   }
+  // })
 }
+
+function userLogin() {
+  const form = document.getElementById("sign-in-form");
+  const inputs = form.getElementsByTagName("input");
+  
+  let uname = inputs[0].value;
+  let pword = inputs[1].value;
+  
+  let log = users.filter((user) => {
+  return user.username == uname && user.password == pword;
+  });
+  
+  if (log.length > 0) {
+  alert("You have Successfully Logged in, " + uname); //msg
+  //sends user data to localstorage so that i can access it in another html file
+  
+  localStorage.setItem("user", JSON.stringify(log[0]));
+  
+  window.location.href = "./main.html";
+  } else {
+  alert("Please enter a valid username and password");
+  }
+  }
+  
+  

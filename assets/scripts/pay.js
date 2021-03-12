@@ -1,7 +1,7 @@
  
   let foodItems = []
 
-  fetch('https://dashboard.heroku.com/apps/tabangduda')
+  fetch(' https://tabangduda.herokuapp.com/button-click/')
   .then(res => res.json())
   .then(data => {
     console.log(data)
@@ -26,7 +26,7 @@
 
     let cart =[]
 
-    fetch('https://dashboard.heroku.com/apps/tabangduda/')
+    fetch(' https://tabangduda.herokuapp.com/button-click/')
     .then(res => res.json())
     .then(data => {
       console.log(data)
@@ -56,7 +56,7 @@
 //   let searchTerm = form.getElementsByTagName("input")[0].value;
 //   let searchReg = new RegExp(searchTerm, "i");
 
-//   fetch("https://dashboard.heroku.com/apps/tabangduda/")
+//   fetch(" https://tabangduda.herokuapp.com/")
 //   .then((response) => response.json())
 //   .then((json) => {
 
@@ -79,14 +79,14 @@
 
 // ========CHECKOUT========
 function checkout() {
-  let total = document.getElementsByClassName("paying")[0].innerHTML;
-  alert(`Thank you for the purchace, come again, your amount is R${total}`);
-  document.getElementById("paying")[0].innerHTML = "0";
+  let total = document.getElementById("total").innerText;
+  alert("Thank you for the purchace, come again, your amount is R"+total);
+  // document.getElementById("paying")[0].innerHTML = "0";
   let clear = "";
   let rec = document.getElementById("myMOdal");
   rec.innerHTML = clear;
 }
-// checkout();
+checkout();
 
       // =====POPUP=====
 

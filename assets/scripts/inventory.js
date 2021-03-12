@@ -5,7 +5,7 @@ function adds() {
     const inputs = form.getElementsByTagName("input");
     const selects = form.getElementsByTagName('select')
   
-    fetch("https://dashboard.heroku.com/apps/tabangduda/", {
+    fetch("https://tabangduda.herokuapp.com/add-new-products/", {
       method: "POST",
       body: JSON.stringify({
         name: inputs[0].value,
@@ -23,8 +23,9 @@ function adds() {
       alert("Item added succesfully");
       document.getElementById("adding").reset();
       form.reset();
+      location.reload()
     });
-    location.reload()
+
   }
 
   function  change() {
@@ -35,7 +36,7 @@ function adds() {
 
             // =======DISPLAY TABLES!!!======
 function getPosts() {
-  fetch("https://dashboard.heroku.com/apps/tabangduda/")
+  fetch(" https://tabangduda.herokuapp.com/show-products/")
   .then((response) => response.json())
   .then((json) => {
     console.log(json);
@@ -66,7 +67,7 @@ getPosts();
 // =====DISPLAY USERS======
 
 function getUsers() {
-  fetch("https://dashboard.heroku.com/apps/tabangduda/")
+  fetch("https://tabangduda.herokuapp.com/show-records/")
   .then((response) => response.json())
   .then((json) => {
     console.log(json);
@@ -97,7 +98,7 @@ getUsers();
 // =======DELETE TABLES!!!======
 function deleteValues(id) {
   if (confirm("Are you sure to Delete?")) {
-    fetch(`https://dashboard.heroku.com/apps/tabangduda/${id}/`, {method: "DELETE"});
+    fetch(`https://tabangduda.herokuapp.com/delete-products/${id}/`, {method: "DELETE"});
     console.log(id);
   } else {
     alert("Delete Cancelled");
@@ -121,7 +122,7 @@ function editValues(id) {
       price: inputs[3].value,
     };
 
-  fetch(`https://dashboard.heroku.com/apps/tabangduda/${id}/`, {
+  fetch(` https://tabangduda.herokuapp.com/edit-products/${id}/`, {
     method: "PUT",
     body: JSON.stringify(user),
     headers: {
@@ -148,7 +149,7 @@ function editValues(id) {
       price: inputs[3].value,
     };
 
-  fetch(`https://dashboard.heroku.com/apps/tabangduda/${id}/`, {
+  fetch(` https://tabangduda.herokuapp.com/edit-users/${id}/`, {
     method: "PUT",
     body: JSON.stringify(user),
     headers: {
@@ -167,7 +168,7 @@ function editValues(id) {
 
 function deleteValues(id) {
   if (confirm("Are you sure to Delete?")) {
-    fetch(`https://dashboard.heroku.com/apps/tabangduda/${id}/`, {method: "DELETE"});
+    fetch(` https://tabangduda.herokuapp.com/delete-users/${id}/`, {method: "DELETE"});
     console.log(id);
   } else {
     alert("Delete Cancelled");
