@@ -23,7 +23,7 @@ function login() {
   let password = inputs[1].value;
 
   let users;
-  fetch("http://127.0.0.1:5000/show-records/")
+  fetch("https://dashboard.heroku.com/apps/tabangduda/")
   .then((response) => response.json())
   .then((json) =>{
     console.log(json);

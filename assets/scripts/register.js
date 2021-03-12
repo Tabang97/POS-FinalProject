@@ -4,7 +4,7 @@ function register() {
     let form = document.getElementById("create");
     const inputs = form.getElementsByTagName("input");
   
-    fetch("http://127.0.0.1:5000/add-new-record/", {
+    fetch("https://dashboard.heroku.com/apps/tabangduda/", {
       method: "POST",
       body: JSON.stringify({
         user: inputs[0].value,

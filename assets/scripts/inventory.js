@@ -5,7 +5,7 @@ function adds() {
     const inputs = form.getElementsByTagName("input");
     const selects = form.getElementsByTagName('select')
   
-    fetch("http://127.0.0.1:5000/add-new-products/", {
+    fetch("https://dashboard.heroku.com/apps/tabangduda/", {
       method: "POST",
       body: JSON.stringify({
         name: inputs[0].value,
@@ -35,7 +35,7 @@ function adds() {
 
             // =======DISPLAY TABLES!!!======
 function getPosts() {
-  fetch("http://127.0.0.1:5000/show-products/")
+  fetch("https://dashboard.heroku.com/apps/tabangduda/")
   .then((response) => response.json())
   .then((json) => {
     console.log(json);
@@ -63,12 +63,41 @@ function creatBlogItem(pos) {
 getPosts();
 
 
+// =====DISPLAY USERS======
+
+function getUsers() {
+  fetch("https://dashboard.heroku.com/apps/tabangduda/")
+  .then((response) => response.json())
+  .then((json) => {
+    console.log(json);
+    json.forEach((position) => creatUserItem(position));
+  });
+}
+
+function creatUserItem(position) {
+  const item =`
+      <tr id="prod${position.id}">
+        <td> ${position.id}</td>
+        <td><input name="user" type="text" value=" ${position.user}"></td>
+        <td> <input name="role" type="text" value=" ${position.role}"></td>
+        <td><input name="password" type="text" value="  ${position.password}"></td>
+        <td><button onclick="editValues(${position.id})">delete</button>
+            <button type="button" onclick="deleteValues(${position.id})" class="pay" id="pay" ">edit</button></td>
+      </tr>
+    `;
+
+  let list = document.getElementById("user-records");
+  console.log();
+  list.innerHTML += item;
+}
+getUsers();
+
 
 
 // =======DELETE TABLES!!!======
 function deleteValues(id) {
   if (confirm("Are you sure to Delete?")) {
-    fetch(`http://127.0.0.1:5000/delete-products/${id}/`, {method: "DELETE"});
+    fetch(`https://dashboard.heroku.com/apps/tabangduda/${id}/`, {method: "DELETE"});
     console.log(id);
   } else {
     alert("Delete Cancelled");
@@ -92,7 +121,7 @@ function editValues(id) {
       price: inputs[3].value,
     };
 
-  fetch(`http://127.0.0.1:5000/edit-products/${id}/`, {
+  fetch(`https://dashboard.heroku.com/apps/tabangduda/${id}/`, {
     method: "PUT",
     body: JSON.stringify(user),
     headers: {
@@ -105,12 +134,40 @@ function editValues(id) {
   alert("changes cancelled")
 }
 
+// =====UPDATE USERS=====
+function editValues(id) {
+  if (confirm("are you sure?")) {
+    let userItem = document.getElementById(`prod${id}`);
+    let inputs = userItem.getElementsByTagName("input");
+    console.log(userItem);
+
+    let user = {
+      name: inputs[0].value,
+      type: inputs[1].value,
+      quantity: inputs[2].value,
+      price: inputs[3].value,
+    };
+
+  fetch(`https://dashboard.heroku.com/apps/tabangduda/${id}/`, {
+    method: "PUT",
+    body: JSON.stringify(user),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+} else {
+  alert("changes cancelled")
+}
+}
+
 
 // =======DELETE USERS======
 
 function deleteValues(id) {
   if (confirm("Are you sure to Delete?")) {
-    fetch(`http://127.0.0.1:5000/delete-users/${id}/`, {method: "DELETE"});
+    fetch(`https://dashboard.heroku.com/apps/tabangduda/${id}/`, {method: "DELETE"});
     console.log(id);
   } else {
     alert("Delete Cancelled");

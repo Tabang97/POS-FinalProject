@@ -1,7 +1,7 @@
  
   let foodItems = []
 
-  fetch('http://127.0.0.1:5000/show-products/')
+  fetch('https://dashboard.heroku.com/apps/tabangduda')
   .then(res => res.json())
   .then(data => {
     console.log(data)
@@ -22,11 +22,11 @@
     });
     console.log(filteredProducts);
   }
-    // =====ADING TO THE CART=====
+    // =====ADDING TO THE CART=====
 
     let cart =[]
 
-    fetch('http://127.0.0.1:5000/show-products/')
+    fetch('https://dashboard.heroku.com/apps/tabangduda/')
     .then(res => res.json())
     .then(data => {
       console.log(data)
@@ -51,41 +51,43 @@
 
 
 // =====SEARCH=====
-function searchProducts(){
-  let form = document.getElementById("search-box");
-  let searchTerm = form.getElementsByTagName("input")[0].value;
-  let searchReg = new RegExp(searchTerm, "i");
+// function searchProducts(){
+//   let form = document.getElementById("search-box");
+//   let searchTerm = form.getElementsByTagName("input")[0].value;
+//   let searchReg = new RegExp(searchTerm, "i");
 
-  fetch("http://127.0.0.1:5000/show-products/")
-  .then((response) => response.json())
-  .then((json) => {
+//   fetch("https://dashboard.heroku.com/apps/tabangduda/")
+//   .then((response) => response.json())
+//   .then((json) => {
 
-    let result = json.filter((category) => {
-      return category.products.search(searchReg) !== -1;
-    });
-    if (result.length > 0) {
-      document.getElementById("display-items").innerHTML = "";
-      result.forEach((item) => showItems(item));
-    }
-    else {
-      alert("Not Found");
-    }
-  })
-  .catch((erro) => {
-    console.log(erro);
-  })
-}
+//     let result = json.filter((category) => {
+//       return category.products.search(searchReg) !== -1;
+//     });
+//     if (result.length > 0) {
+//       document.getElementById("display-items").innerHTML = "";
+//       result.forEach((item) => showItems(item));
+//     }
+//     else {
+//       alert("Not Found");
+//     }
+//   })
+//   .catch((erro) => {
+//     console.log(erro);
+//   })
+// }
 
 
 // ========CHECKOUT========
 function checkout() {
   let total = document.getElementsByClassName("paying")[0].innerHTML;
-  alert(`Thank you for the purchace, come again, your total is R${total}`);
-  document.getElementsByClassName("paying")[0].innerHTML = "0";
+  alert(`Thank you for the purchace, come again, your amount is R${total}`);
+  document.getElementById("paying")[0].innerHTML = "0";
   let clear = "";
-  let rec = document.getElementById("cartlist");
+  let rec = document.getElementById("myMOdal");
   rec.innerHTML = clear;
 }
+// checkout();
+
       // =====POPUP=====
 
       var modal = document.getElementById("myModal");
