@@ -1,4 +1,3 @@
- 
   let foodItems = []
 
   fetch(' https://tabangduda.herokuapp.com/button-click/')
@@ -22,6 +21,8 @@
     });
     console.log(filteredProducts);
   }
+  // showItems();
+
     // =====ADDING TO THE CART=====
 
     let cart =[]
@@ -48,6 +49,7 @@
       });
       console.log(filteredProducts)
     }
+    // addToCart();
 
 
 // =====SEARCH=====
@@ -71,8 +73,8 @@
 //       alert("Not Found");
 //     }
 //   })
-//   .catch((erro) => {
-//     console.log(erro);
+//   .catch((error) => {
+//     console.log(error);
 //   })
 // }
 // searchProducts();
@@ -87,21 +89,4 @@ function checkout() {
   let rec = document.getElementById("myMOdal");
   rec.innerHTML = clear;
 }
-checkout();
-
-      // =====POPUP=====
-
-      var modal = document.getElementById("myModal");
-      var btn = document.getElementById("pay");
-      var span = document.getElementsByClassName("close")[0];
-      
-      btn.onclick = function() {
-        modal.style.display = "block";
-      }
-      span.onclick = function() {
-        modal.style.display = "none";
-      }
-
-function openEditModal(id){
-  console.log(id)
-}
+// checkout();

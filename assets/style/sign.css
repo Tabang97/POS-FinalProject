@@ -5,23 +5,26 @@
 }
 
 body{
-    background: black;
+    background: url('/assets/images/brazil-1869868_1920.jpg');
+    background-repeat: no-repeat;
+    position: relative;
+    font-family: monospace;
+    letter-spacing: 2px;
 }
 
 .sign{
-    border: solid rgb(44, 243, 77);
     box-sizing: content-box;
     padding: 40px;
     height: 90vh;
 }
 .sign p{
     justify-content: center;
-    color: white;
+    color: black;
     display: flex;
     flex-wrap: wrap;
-    border: solid blueviolet;
     box-sizing: content-box;
     padding: 40px;
+    font-size:50px;
 }
 form{
     align-items: center;
@@ -29,7 +32,8 @@ form{
     flex-direction: column;
     padding: 40px;
     padding-top: 10%;
-    
+    border-width: 5%;
+    /* background: url('/assets/images/brazil-1869868_1920.jpg'); */
 }
 form input{
     height: 5vh;
@@ -48,12 +52,11 @@ a:hover{
 }
 button{
     font-size: large;
-    background: red;
     border: none;
     border-radius: 5px;
     margin: 10px;
     padding: 5px;
 }
 button:hover{
-    background: white;
+    background: red;
 }
