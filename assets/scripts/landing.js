@@ -39,25 +39,8 @@ function login() {
     window.location.href = "./pay.html";
   } else {
   alert("Please enter a valid username and password");
-  }
-  // let users;
-  // fetch(" https://tabangduda.herokuapp.com/log/")
-  // .then((response) => response.json())
-  // .then((json) =>{
-  //   console.log(json);
-  //   users = json;
-  //   console.log(user, password, users);
-
-  //   let logged = users.filter((userProfile) => {
-  //     return userProfile.user == user && userProfile.password == password;
-  //   });
-  //   console.log(logged);
-  //   if (logged.length >0){
-  //     window.location.href = `./pay.html`;
-  //   }
-  // })
-}
-
+  }}
+;
 function userLogin() {
   const form = document.getElementById("sign-in-form");
   const inputs = form.getElementsByTagName("input");
@@ -70,15 +53,11 @@ function userLogin() {
   });
   
   if (log.length > 0) {
-  alert("You have Successfully Logged in, " + uname); //msg
-  //sends user data to localstorage so that i can access it in another html file
+  alert("You have Successfully Logged in, " + uname);
   
   localStorage.setItem("user", JSON.stringify(log[0]));
   
   window.location.href = "./main.html";
   } else {
   alert("Please enter a valid username and password");
-  }
-  }
-  
-  
+  }}

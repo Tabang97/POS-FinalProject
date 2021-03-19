@@ -9,7 +9,15 @@ body {
     margin: auto;
     width: auto;
 }
-
+.back{
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    padding-left: 20px;
+}
+.back:hover{
+    color: red;
+}
 /* ===== TABLE ===== */
 
 h1{
